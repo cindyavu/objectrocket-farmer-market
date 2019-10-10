@@ -9,13 +9,13 @@ class Product(object):
             return self.id == other.id and self.name == other.name and self.price == other.price
         return False
 
-    def get_id(self):
+    def getId(self):
         return self.id
          
-    def get_name(self):
+    def getName(self):
         return self.name 
 
-    def get_price(self):
+    def getPrice(self):
         return self.price
 
     

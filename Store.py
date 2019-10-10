@@ -9,10 +9,9 @@ class Store(object):
         self.cartTotal=0
         self.p=Promotion()
         self.populateInventory()
-
-
+        
     def getName(self, item):
-        return self.inventory[item].get_name()
+        return self.inventory[item].getName()
 
 
     def populateInventory(self):
@@ -25,11 +24,11 @@ class Store(object):
       
 
     def addtoCart(self, item): 
-        self.cartTotal+=self.inventory[item].get_price()
+        self.cartTotal+=self.inventory[item].getPrice()
         self.cart[item]=self.cart.get(item,0)+1
 
 
-    def checkout(self):
+    def printReceipt(self):
         discount=self.p.getDiscount(self.cart)
         total=self.cartTotal-discount
         total=round(total,2)
@@ -37,6 +36,10 @@ class Store(object):
 
 
     def display(self,total):
+        tab1="              "
+        tab3="      "
+        tab4="            "
+        line="_______________________"
         line1="Item             Price\n"
         line2="____             _____\n"
         receipt=line1+line2
@@ -49,15 +52,15 @@ class Store(object):
             j=0
 
             for i in range(item_count):
-                charge="{}              ${:,.2f}\n".format(item, self.inventory[item].get_price())
+                charge="{}".format(item)+tab1+"${:,.2f}\n".format(self.inventory[item].getPrice())
                 discount=""
                 if j<len(promoItem[item]):
-                    discount="      {}     $-{:,.2f}\n".format(promo_list[i], promo[promo_list[i]])
+                    discount=tab3+"{}".format(promo_list[i])+tab3+"$-{:,.2f}\n".format(promo[promo_list[i]])
                 receipt+=charge+discount
                 j+=1
 
-        endline="______________________\n"
-        total="Total            ${:,.2f}".format(total)
+        endline=line+"\n"
+        total="Total"+tab4+"${:,.2f}".format(total)
         receipt+=endline+total
         print(receipt)
 
