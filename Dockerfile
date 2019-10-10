@@ -8,8 +8,10 @@ COPY test_Store.py .
 COPY Product_List.txt .
 COPY Promos.txt .
 COPY requirements.txt . 
+COPY run_clients.sh .
 
 RUN pip install -r requirements.txt
 
+CMD [ "sh", "run_clients.sh"]
 
-CMD [ "python", "Main.py" ] 
+
