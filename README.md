@@ -71,5 +71,31 @@ $ docker run -it farmers_market
 ## Testing
 - Tests will run automatically upon finishing the main program
 
+## Usage
+- Upon launching the program you will be prompted to enter an option:
+```
+What would you like to do? 
+1. Add to cart
+2. Check current cart
+3. Checkout
+Enter 1,2,3
+Option:
+```
+- If the user chooses option 1, input product name by their product code 
+```
+What would you like to do? 
+1. Add to cart
+2. Check current cart
+3. Checkout
+Enter 1,2,3
+Option: 1
+__________________________
+
+What item would you like to add? 
+Item: AP1
+__________________________
+
+Apples added to cart!
+```
 
 
